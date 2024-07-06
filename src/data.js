@@ -8,7 +8,7 @@ const data = {
         price: "Free",
         category: "Textures",
         description: "4 Textures",
-        image: "/images/txtrs.png",
+        image: "/txtrs.png",
         link: "https://drive.google.com/drive/folders/1edgUjt_n5PpE6GTAoU3aW8PRFZmbfmrU"
     },
     { id: 2, 
