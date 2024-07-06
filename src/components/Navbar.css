@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    color:#1f1f1f;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li {
+    display: inline;
+}
+
+.navbar-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navbar-list a:hover {
+    text-decoration: underline;
+}
+
+.navbar-nav {
+    gap:20px;
+}
+
+.btn-outline-success {
+    color: blue;
+}

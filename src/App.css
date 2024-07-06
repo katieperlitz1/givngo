@@ -1,0 +1,29 @@
+.pageHeader {
+  padding: 20px;
+}
+
+.btn {
+  background-color: #0094FF;
+  border: none;
+  color: white;
+}
+
+.home {
+  padding:60px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.product-page {
+  padding:30px;
+}
+
+.container-fluid {
+  gap: 20px;
+  margin-left:20px;
+}
