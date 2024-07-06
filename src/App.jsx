@@ -9,10 +9,11 @@ import CreatorShops from './pages/CreatorShops'
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from "styled-components";
 
+
 export default function App() {
 
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,6 +22,6 @@ export default function App() {
         <Route path="/elements" element={<Elements />} />
         <Route path="/creatorshops" element={<CreatorShops />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
