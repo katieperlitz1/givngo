@@ -44,7 +44,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "PSDs and Patreon content",
-        image: "images/8kscanned.png",
+        image: "images/slavashop.png",
         link:"https://www.patreon.com/slavagfx/shop"
     },
     { id: 6, 
@@ -55,6 +55,33 @@ const data = {
         description: "10 Free High Quality Grunge Textures",
         image: "images/bradleygrunge.png",
         link:"https://bradsdesignss.gumroad.com/l/FREEGRUNGE?layout=profile&recommended_by=search"
+    },
+    { id: 7, 
+        title: "75 Grunge Textures", 
+        credit: "Bradley Holman",
+        price: "Paid",
+        category: "Textures",
+        description: "75 Grunge Textures in JPG format - $15-$25",
+        image: "images/bradleymegagrunge.png",
+        link:"https://bradsdesignss.gumroad.com/l/grunge?layout=profile"
+    },
+    { id: 8, 
+        title: "Overlays and Backgrounds", 
+        credit: "Designed by Hassan",
+        price: "Free",
+        category: "Textures",
+        description: "Pinterest collection of hundreds of overlays and elements",
+        image: "images/hassanresources.png",
+        link:"https://pin.it/62bM1kxcC"
+    },
+    { id: 9, 
+        title: "Matt Chapman PSD", 
+        credit: "Wynters_Designs",
+        price: "Free",
+        category: "PSDs",
+        description: "Two Free PSDs by Wynters_Designs",
+        image: "images/chapmanpsd.png",
+        link:"https://drive.google.com/drive/u/2/folders/1-s01yaAcFWZ2Ezqdh-MNtEG2eglmwPR6"
     },
       
     ],

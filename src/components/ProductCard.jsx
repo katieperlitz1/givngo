@@ -11,21 +11,22 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
+import IconButton from "@mui/joy/IconButton";
+import Favorite from "@mui/icons-material/Favorite";
 
 const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#0094FF',
-        light: '#6CC1FF',
-        dark: '#001829',
-        contrastText: '#242105',
-      },
+  palette: {
+    primary: {
+      main: "#0094FF",
+      light: "#6CC1FF",
+      dark: "#001829",
+      contrastText: "#242105",
     },
+  },
 });
 
 export default function ProductCard(props) {
-
-const priceColor = props.product.price === "Free" ? "primary" : "warning"
+  const priceColor = props.product.price === "Free" ? "primary" : "warning";
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,16 +53,24 @@ const priceColor = props.product.price === "Free" ? "primary" : "warning"
           >
             {props.product.title}
           </Typography>
-          <Typography level="body-xs">{props.product.credit}</Typography>
           <Link
-            href="#product-card"
+            href={props.product.link}
+            fontWeight="md"
+            color="neutral"
+            textColor="text.primary"
+            overlay
+            level="body-xs"
+          >
+            {props.product.credit}
+          </Link>
+          <Typography
             fontWeight="md"
             color="neutral"
             textColor="text.primary"
             overlay
           >
             {props.product.description}
-          </Link>
+          </Typography>
         </CardContent>
         <CardOverflow>
           <Button
