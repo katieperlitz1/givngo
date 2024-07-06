@@ -17,7 +17,7 @@ const data = {
         price: "Free",
         category: "Texture",
         description: "Free textures",
-        image: "/public/images/8kscanned.png",
+        image: "/8kscanned.png",
         link: "https://synthevisuals.gumroad.com/l/nnaos"
     },
     { id: 3, 
@@ -26,7 +26,7 @@ const data = {
         price: "Paid/Free",
         category: "Shop",
         description: "Patterns, Shadows, Elements",
-        image: "/public/images/akshay.png",
+        image: "/akshay.png",
         link: "https://byakshayram.gumroad.com/"
     },
     { id: 4, 
@@ -35,7 +35,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "Textures, LUTs, Lighting, Effects",
-        image: "/public/images/ethanj.png",
+        image: "/ethanj.png",
         link:"https://ethanjdesignshop.com/collections/all"
     },
     { id: 5, 
@@ -44,7 +44,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "PSDs",
-        image: "/public/images/8kscanned.png",
+        image: "/8kscanned.png",
         link:"https://ethanjdesignshop.com/collections/all"
     },
       
