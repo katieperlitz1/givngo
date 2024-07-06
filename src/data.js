@@ -83,6 +83,15 @@ const data = {
         image: "images/chapmanpsd.png",
         link:"https://drive.google.com/drive/u/2/folders/1-s01yaAcFWZ2Ezqdh-MNtEG2eglmwPR6"
     },
+    { id: 10, 
+        title: "Kenneth Walker PSD", 
+        credit: "Darwent Designs",
+        price: "Free",
+        category: "PSDs",
+        description: "Free PSD from Darwent Design's YouTube",
+        image: "images/darwentpsd.png",
+        link:"https://drive.google.com/file/d/1mIPYsROQ_ji8QDkC2VbGPGI1YQoNSNKx/view"
+    },
       
     ],
     settings: {

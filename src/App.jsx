@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PSDs from "./pages/PSDs";
 import Textures from "./pages/Textures";
