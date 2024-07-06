@@ -8,7 +8,7 @@ const data = {
         price: "Free",
         category: "Textures",
         description: "4 Textures",
-        image: "/public/assets/txtrs.png",
+        image: "/public/images/txtrs.png",
         link: "https://drive.google.com/drive/folders/1edgUjt_n5PpE6GTAoU3aW8PRFZmbfmrU"
     },
     { id: 2, 
@@ -17,7 +17,7 @@ const data = {
         price: "Free",
         category: "Texture",
         description: "Free textures",
-        image: "/public/assets/8kscanned.png",
+        image: "/public/images/8kscanned.png",
         link: "https://synthevisuals.gumroad.com/l/nnaos"
     },
     { id: 3, 
@@ -26,7 +26,7 @@ const data = {
         price: "Paid/Free",
         category: "Shop",
         description: "Patterns, Shadows, Elements",
-        image: "/public/assets/akshay.png",
+        image: "/public/images/akshay.png",
         link: "https://byakshayram.gumroad.com/"
     },
     { id: 4, 
@@ -35,7 +35,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "Textures, LUTs, Lighting, Effects",
-        image: "/public/assets/ethanj.png",
+        image: "/public/images/ethanj.png",
         link:"https://ethanjdesignshop.com/collections/all"
     },
     { id: 5, 
@@ -44,7 +44,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "PSDs",
-        image: "/public/assets/8kscanned.png",
+        image: "/public/images/8kscanned.png",
         link:"https://ethanjdesignshop.com/collections/all"
     },
       
