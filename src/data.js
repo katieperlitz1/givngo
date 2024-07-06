@@ -8,7 +8,7 @@ const data = {
         price: "Free",
         category: "Textures",
         description: "4 Textures",
-        image: "/images/txtrs.png",
+        image: "images/txtrs.png",
         link: "https://drive.google.com/drive/folders/1edgUjt_n5PpE6GTAoU3aW8PRFZmbfmrU"
     },
     { id: 2, 
@@ -17,7 +17,7 @@ const data = {
         price: "Free",
         category: "Textures",
         description: "Free textures",
-        image: "/images/8kscanned.png",
+        image: "images/8kscanned.png",
         link: "https://synthevisuals.gumroad.com/l/nnaos"
     },
     { id: 3, 
@@ -26,7 +26,7 @@ const data = {
         price: "Paid/Free",
         category: "Shop",
         description: "Patterns, Shadows, Elements",
-        image: "/images/akshay.png",
+        image: "images/akshay.png",
         link: "https://byakshayram.gumroad.com/"
     },
     { id: 4, 
@@ -35,7 +35,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "Textures, LUTs, Lighting, Effects",
-        image: "/images/ethanj.png",
+        image: "images/ethanj.png",
         link:"https://ethanjdesignshop.com/collections/all"
     },
     { id: 5, 
@@ -44,7 +44,7 @@ const data = {
         price: "Paid",
         category: "Shop",
         description: "PSDs and Patreon content",
-        image: "/images/8kscanned.png",
+        image: "images/8kscanned.png",
         link:"https://www.patreon.com/slavagfx/shop"
     },
     { id: 6, 
@@ -53,7 +53,7 @@ const data = {
         price: "Free",
         category: "Textures",
         description: "10 Free High Quality Grunge Textures",
-        image: "/images/bradleygrunge.png",
+        image: "images/bradleygrunge.png",
         link:"https://bradsdesignss.gumroad.com/l/FREEGRUNGE?layout=profile&recommended_by=search"
     },
       
