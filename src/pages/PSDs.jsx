@@ -9,7 +9,7 @@ function PSDs() {
         (product) => product.category === "PSDs"
       );
     return (
-        <div class="product-page">
+        <div className="product-page">
           <h1 className="pageHeader">PSDs</h1>
           <div className="product-grid">
             {psds.map((product) => (

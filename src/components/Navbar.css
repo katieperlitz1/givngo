@@ -33,3 +33,7 @@
 .btn-outline-success {
     color: blue;
 }
+
+.navbar-brand {
+    margin-left: 18px;
+}

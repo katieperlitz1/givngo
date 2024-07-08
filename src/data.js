@@ -7,7 +7,7 @@ const data = {
         credit: "",
         price: "Free",
         category: "Textures",
-        description: "4 Textures",
+        description: "Four Grunge/Noise Textures",
         image: "images/txtrs.png",
         link: "https://drive.google.com/drive/folders/1edgUjt_n5PpE6GTAoU3aW8PRFZmbfmrU"
     },
@@ -91,6 +91,15 @@ const data = {
         description: "Free PSD from Darwent Design's YouTube",
         image: "images/darwentpsd.png",
         link:"https://drive.google.com/file/d/1mIPYsROQ_ji8QDkC2VbGPGI1YQoNSNKx/view"
+    },
+    { id: 11, 
+        title: "Concept Art Brush Pack", 
+        credit: "CalSoScoped",
+        price: "Free",
+        category: "Elements",
+        description: "Clouds, particles, rock, sparks, rays, and more",
+        image: "images/calsoscopedbrush.png",
+        link:"https://mega.nz/file/tXpQgbqZ#2FLuyi7aJOOwO7_8HJcCwMCL28RHCEx5IKQgRwslK0g"
     },
       
     ],

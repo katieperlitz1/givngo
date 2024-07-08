@@ -6,13 +6,36 @@ import Textures from "./pages/Textures";
 import Elements from "./pages/Elements";
 import Home from "./pages/Home";
 import CreatorShops from './pages/CreatorShops'
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from "styled-components";
+import { createTheme, ThemeProvider } from "@mui/material/styles"
+import { extendTheme, CssVarsProvider } from '@mui/joy/styles';
+
+const theme = extendTheme({
+  palette: {
+        primary: {
+          main: '#0094FF',
+        },
+        secondary: {
+          main: '#edf2ff',
+        },
+      },
+});
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#0094FF',
+//     },
+//     secondary: {
+//       main: '#edf2ff',
+//     },
+//   },
+// });
 
 
 export default function App() {
 
   return (
+    <CssVarsProvider theme={theme}>
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -23,5 +46,6 @@ export default function App() {
         <Route path="/creatorshops" element={<CreatorShops />} />
       </Routes>
     </BrowserRouter>
+    </CssVarsProvider>
   );
 };

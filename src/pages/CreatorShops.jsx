@@ -9,7 +9,7 @@ function CreatorShops() {
       (product) => product.category === "Shop"
     );
     return (
-      <div class="product-page">
+      <div className="product-page">
         <h1 className="pageHeader">Creator Shops</h1>
         <div className="product-grid">
           {shops.map((product) => (
