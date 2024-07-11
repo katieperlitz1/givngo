@@ -13,10 +13,11 @@ function PSDs() {
           <h1 className="pageHeader">PSDs</h1>
           <div className="product-grid">
             {psds.map((product) => (
-              <ProductCard product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
+        
       );
 };
 

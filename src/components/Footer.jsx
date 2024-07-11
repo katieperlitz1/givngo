@@ -1,6 +1,6 @@
 import React from "react";
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
-import { Typography } from "@mui/joy";
+import { Typography } from "@mui/material";
 import { blue } from '@mui/material/colors';
 
 

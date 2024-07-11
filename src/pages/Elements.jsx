@@ -8,14 +8,14 @@ function Elements() {
         (product) => product.category === "Elements"
       );
       return (
-        <div className="product-page">
-          <h1 className="pageHeader">Elements & Brushes</h1>
-          <div className="product-grid">
-            {elements.map((product) => (
-              <ProductCard product={product} />
-            ))}
+          <div className="product-page">
+            <h1 className="pageHeader">Elements & Brushes</h1>
+            <div className="product-grid">
+              {elements.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           </div>
-        </div>
       );
 };
 

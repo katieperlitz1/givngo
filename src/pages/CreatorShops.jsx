@@ -13,7 +13,7 @@ function CreatorShops() {
         <h1 className="pageHeader">Creator Shops</h1>
         <div className="product-grid">
           {shops.map((product) => (
-            <ProductCard product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>

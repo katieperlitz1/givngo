@@ -57,7 +57,11 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+          
         </div>
+        <button className="btn btn-outline-success my-2 my-sm-0"><NavLink className="nav-link" to="/signin">
+                Sign In
+              </NavLink></button>
       </div>
     </nav>
   );

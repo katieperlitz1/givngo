@@ -12,7 +12,7 @@ function Textures() {
       <h1 className="pageHeader">Textures and Overlays</h1>
       <div className="product-grid">
         {textures.map((product) => (
-          <ProductCard product={product} key={product.id}/>
+          <ProductCard product={product} key={product.id} />
         ))}
       </div>
     </div>

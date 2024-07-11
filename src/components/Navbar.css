@@ -37,3 +37,7 @@
 .navbar-brand {
     margin-left: 18px;
 }
+
+.border-bottom {
+    display:none;
+}
