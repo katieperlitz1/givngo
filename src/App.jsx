@@ -11,11 +11,12 @@ import SignUpPage from "./pages/SignUpPage";
 import  createTheme  from "@mui/material/styles/createTheme"
 import  ThemeProvider  from "@mui/material/styles/ThemeProvider"
 import { blue } from '@mui/material/colors';
+import AppBar from './components/AppBar';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: blue[500],
+      main: '#0094FF',
     },
     secondary: {
       main: blue[800],
@@ -27,7 +28,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
     <BrowserRouter>
-      <Navbar />
+      <AppBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/psds" element={<PSDs />} />

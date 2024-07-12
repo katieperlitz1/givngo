@@ -18,7 +18,7 @@ export default function ProductCard(props) {
 
   return (
     <Card
-      sx={{ width: 300, maxWidth: "100%", boxShadow: 3, borderRadius: 3}}
+      sx={{ width: '100%', maxWidth: "100%", boxShadow: 3, borderRadius: 3}}
       variant="outlined"
     >
       <CardMedia
@@ -51,14 +51,14 @@ export default function ProductCard(props) {
           {props.product.description}
         </Typography>
       </CardContent>
-      <CardContent sx={{ display: "flex", paddingBottom: '16px', marginBottom:0}}>
+      <CardContent sx={{ display: "flex", paddingBottom: '16px', marginBottom:0, paddingTop:0}}>
         <Button
           size="large"
           href={props.product.link}
           endIcon={<ArrowOutwardIcon />}
           component={RouterLink}
           to={props.product.link}
-          sx={{ bgcolor: blue[500], color: "white", width:'100%', borderRadius:5, fontWeight:'bold'}}
+          sx={{ bgcolor: blue[500], color: "white", width:'100%', borderRadius:5, fontWeight:'bold',}}
         >
           Use this resource
         </Button>

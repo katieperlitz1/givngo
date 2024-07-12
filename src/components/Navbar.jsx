@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import "bootstrap/dist/css/bootstrap.css";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   return (
@@ -57,11 +58,17 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          
         </div>
-        <button className="btn btn-outline-success my-2 my-sm-0"><NavLink className="nav-link" to="/signin">
-                Sign In
-              </NavLink></button>
+        <Button variant="contained">
+          <NavLink className="nav-link" to="/signin">
+            Sign In
+          </NavLink>
+        </Button>
+        <Button variant="outlined">
+          <NavLink className="nav-link" to="/signup">
+            Sign Up
+          </NavLink>
+        </Button>
       </div>
     </nav>
   );

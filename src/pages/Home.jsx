@@ -1,39 +1,55 @@
 import React from "react";
 import "../App.css";
-import HomeCard from "../components/HomeCard";
 import data from "../data";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer"
 import LoginPage from "./SignInPage";
+import {
+  Box,
+  Container,
+  Stack,
+  Typography,
+  Button,
+  TextField,
+} from "@mui/material";
 
 function Home() {
   return (
-    <div>
-      <div className="p-5 mb-4 bg-body-tertiary rounded-3">
-        <div className="container-fluid py-5 home">
-          <h1 className="display-5 fw-bold">
-            All your sports graphics essentials, in one place.
-          </h1>
-          <p className="col-md-8 fs-4">
-            From overlays and textures to editing techniques and Photoshop
-            files, GivNGo has everything you need to elevate your graphics game.
-          </p>
-
-          <div className="album py-5 bg-body-tertiary">
-            <div className="container">
-              <HomeCard />
-            </div>
-          </div>
-          <h1 className="display-7 fw-bold">Favorites this week</h1>
-          <div className="product-grid">
-            {data.products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </div>
+    <Box id="homepage">
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          pt: { xs: 14, sm: 20 },
+          pb: { xs: 8, sm: 12 },
+          gap:4,
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignSelf: "center",
+            textAlign: "center",
+            fontSize: "50px",
+          }}
+        >
+          The #1 Resource Library for Sports Designers
+        </Typography>
+        <Typography
+          textAlign="center"
+          color="text.secondary"
+          sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
+        >
+          Explore our cutting-edge dashboard, delivering high-quality solutions
+          tailored to your needs. Elevate your experience with top-tier features
+          and services.
+        </Typography>
+      </Container>
       <Footer />
-    </div>
+    </Box>
   );
 };
 

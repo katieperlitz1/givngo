@@ -13,9 +13,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { auth } from "../firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function SignIn() {
   const [userCredentials, setUserCredentials] = useState({});
+  const [error, setError] = useState("");
 
   const handleCredentials = (e) => {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -23,15 +25,18 @@ export default function SignIn() {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
+    setError("");
+    signInWithEmailAndPassword(
+      auth,
+      userCredentials.email,
+      userCredentials.password
+    )
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user)
+        console.log(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        
+        setError(error.message)
       });
   };
 
@@ -52,7 +57,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
