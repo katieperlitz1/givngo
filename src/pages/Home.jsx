@@ -1,9 +1,6 @@
 import React from "react";
 import "../App.css";
 import data from "../data";
-import ProductCard from "../components/ProductCard";
-import Footer from "../components/Footer"
-import LoginPage from "./SignInPage";
 import {
   Box,
   Container,
@@ -12,6 +9,7 @@ import {
   Button,
   TextField,
 } from "@mui/material";
+import ProductCard from "../components/ProductCard";
 
 function Home() {
   return (
@@ -23,7 +21,7 @@ function Home() {
           alignItems: "center",
           pt: { xs: 14, sm: 20 },
           pb: { xs: 8, sm: 12 },
-          gap:4,
+          gap: 4,
         }}
       >
         <Typography
@@ -43,12 +41,29 @@ function Home() {
           color="text.secondary"
           sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
         >
-          Explore our cutting-edge dashboard, delivering high-quality solutions
-          tailored to your needs. Elevate your experience with top-tier features
-          and services.
+          Discover top-tier resources, from PSDs to textures, curated for sports
+          graphic designers.
         </Typography>
+        <Button variant="contained">Explore All</Button>
+        <TextField
+          id="outlined-basic"
+          hiddenLabel
+          size="small"
+          variant="outlined"
+          aria-label="Enter your email address"
+          placeholder="Search"
+          inputProps={{
+            autoComplete: "off",
+            "aria-label": "Enter your email address",
+          }}
+          width="100%"
+        />
       </Container>
-      <Footer />
+      <div className="product-grid">
+        {data.products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </Box>
   );
 };

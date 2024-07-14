@@ -7,7 +7,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -37,8 +36,7 @@ function AppAppBar() {
           bgcolor: "transparent",
           backgroundImage: "none",
           mt: 2,
-          paddingLeft: 2,
-          paddingright: 2,
+
         }}
       >
         <Container maxWidth="xl">
@@ -93,7 +91,7 @@ function AppAppBar() {
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
                   <NavLink
                     variant="body2"
-                    style={{ textDecoration: "none", color: "#1f1f1f" }}
+                    style={{ textDecoration: "none", color: "#1f1f1f"}}
                     to="/textures"
                   >
                     Textures
@@ -103,9 +101,9 @@ function AppAppBar() {
                   <NavLink
                     variant="body2"
                     style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    to="/elements"
+                    to="/effects"
                   >
-                    Elements
+                    Effects
                   </NavLink>
                 </MenuItem>
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
@@ -129,7 +127,7 @@ function AppAppBar() {
             >
               <Button
                 color="primary"
-                variant="text"
+                variant="outlined"
                 size="small"
                 component="a"
                 href="/signin"
@@ -194,10 +192,10 @@ function AppAppBar() {
                   <MenuItem>
                     <NavLink
                       variant="body2"
-                      to="/elements"
+                      to="/effects"
                       style={{ textDecoration: "none", color: "#1f1f1f" }}
                     >
-                      Elements
+                      Effects
                     </NavLink>
                   </MenuItem>
                   <MenuItem>

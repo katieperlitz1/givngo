@@ -54,13 +54,14 @@ export default function ProductCard(props) {
       <CardContent sx={{ display: "flex", paddingBottom: '16px', marginBottom:0, paddingTop:0}}>
         <Button
           size="large"
+          variant="outlined"
           href={props.product.link}
           endIcon={<ArrowOutwardIcon />}
           component={RouterLink}
           to={props.product.link}
-          sx={{ bgcolor: blue[500], color: "white", width:'100%', borderRadius:5, fontWeight:'bold',}}
+          sx={{  color: "white", color: blue[500], width:'100%', fontWeight:'bold'}}
         >
-          Use this resource
+          Use Resource
         </Button>
       </CardContent>
     </Card>
