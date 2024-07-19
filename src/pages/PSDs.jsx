@@ -2,7 +2,7 @@ import React from 'react';
 import "../App.css";
 import data from "../data"
 import ProductCard from "../components/ProductCard"
-
+import {Typography} from "@mui/material";
 
 function PSDs() {
     const psds = data.products.filter(
@@ -10,7 +10,7 @@ function PSDs() {
       );
     return (
         <div className="product-page">
-          <h1 className="pageHeader">PSDs</h1>
+          <Typography variant="h3">PSDs</Typography>
           <div className="product-grid">
             {psds.map((product) => (
               <ProductCard key={product.id} product={product} />

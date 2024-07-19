@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import PSDs from "./pages/PSDs";
 import Textures from "./pages/Textures";
 import Effects from "./pages/Effects";
@@ -13,6 +12,7 @@ import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { blue } from "@mui/material/colors";
 import AppBar from "./components/AppBar";
 import Footer from "./components/Footer";
+import Profile from "./pages/Profile";
 
 const theme = createTheme({
   palette: {
@@ -48,6 +48,7 @@ export default function App() {
           <Route path="/creatorshops" element={<CreatorShops />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
       <Footer />

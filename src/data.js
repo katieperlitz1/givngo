@@ -255,18 +255,35 @@ const data = {
         image: "images/keshxnbig3.png",
         link:"https://keshxndesign.gumroad.com/l/ckjru?layout=profile"
     },
-    { id: 28, 
-        title: "Big 3 in Phoenix PSD", 
-        credit: "Keshxn",
+    { id: 29, 
+        title: "Akshay's Photoshop 'Shadow Starter Pack'", 
+        credit: "byAkshayRam",
         price: "Free",
+        category: "Elements",
+        description: "1 CC library with 9 drop shadow presets",
+        image: "images/akshayshadow.png",
+        link:"https://byakshayram.gumroad.com/l/shadowpackvol1?layout=profile"
+    },
+    { id: 30, 
+        title: "Photoshop Path Shadow Action", 
+        credit: "byAkshayRam",
+        price: "Free",
+        category: "Elements",
+        description: "2 Photoshop Actions  + 1 Video Demo",
+        image: "images/akshaypathshadow.png",
+        link:"https://byakshayram.gumroad.com/l/PathShadowAction?layout=profile"
+    },
+    { id: 31, 
+        title: "NBA 2k22 Cover PSDs", 
+        credit: "Axndo",
+        price: "Paid",
         category: "PSDs",
-        description: "Free downloadable poster design",
-        image: "images/keshxnbig3.png",
-        link:"https://keshxndesign.gumroad.com/l/ckjru?layout=profile"
+        description: "Donovan Mitchell, Luka Magic & Be Legendary",
+        image: "images/nba2k22.png",
+        link:"https://payhip.com/b/2Skgc"
     },
       
     ],
-    favorites: [1,3,10,19,7],
 
   };
   

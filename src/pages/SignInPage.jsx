@@ -36,10 +36,10 @@ export default function SignIn() {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     setError("");
-    signInWithEmailAndPassword(
+    await signInWithEmailAndPassword(
       auth,
       userCredentials.email,
       userCredentials.password
@@ -47,6 +47,7 @@ export default function SignIn() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        window.location.href = "/profile";
       })
       .catch((error) => {
         setError(error.message)
@@ -118,7 +119,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link onClick={handlePasswordReset} variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -130,10 +131,7 @@ export default function SignIn() {
           </Typography>
         )}
       </Box>
-      <Dialog
-        open={dialogueOpen}
-        onClose={handleDialogueClose}
-      >
+      <Dialog open={dialogueOpen} onClose={handleDialogueClose}>
         <DialogTitle>Reset Password</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -153,7 +151,9 @@ export default function SignIn() {
         </DialogContent>
         <DialogActions>
           {/* <Button onClick={setDialogueOpen(false)}>Cancel</Button> */}
-          <Button onClick={handlePasswordReset} type="submit">Send</Button>
+          <Button onClick={handlePasswordReset} type="submit">
+            Send
+          </Button>
         </DialogActions>
       </Dialog>
     </Container>

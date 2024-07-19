@@ -50,7 +50,7 @@ function Home() {
           hiddenLabel
           size="small"
           variant="outlined"
-          aria-label="Enter your email address"
+          aria-label="Search"
           placeholder="Search"
           inputProps={{
             autoComplete: "off",
@@ -59,11 +59,13 @@ function Home() {
           width="100%"
         />
       </Container>
+      <Container sx={{padding:"30px"}}>
       <div className="product-grid">
         {data.products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      </Container>
     </Box>
   );
 };

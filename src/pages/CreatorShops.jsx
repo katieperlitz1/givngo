@@ -2,6 +2,9 @@ import React from 'react';
 import "../App.css";
 import data from "../data";
 import ProductCard from "../components/ProductCard";
+import {
+  Typography,
+} from "@mui/material";
 
 
 function CreatorShops() {
@@ -10,7 +13,7 @@ function CreatorShops() {
     );
     return (
       <div className="product-page">
-        <h1 className="pageHeader">Creator Shops</h1>
+        <Typography variant="h3">Creator Shops</Typography>
         <div className="product-grid">
           {shops.map((product) => (
             <ProductCard key={product.id} product={product} />

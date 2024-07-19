@@ -11,13 +11,14 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 
 const logoStyle = {
   width: "100px",
   height: "auto",
   cursor: "pointer",
   marginRight: "10px",
-  marginTop: "2px",
+  marginTop: "5px",
 };
 
 function AppAppBar() {
@@ -209,30 +210,31 @@ function AppAppBar() {
                   </MenuItem>
 
                   <Divider />
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      component="a"
-                      href="/signup"
-                      target="_blank"
-                      sx={{ width: "100%" }}
-                    >
-                      Sign up
-                    </Button>
-                  </MenuItem>
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="outlined"
-                      component="a"
-                      href="/signin"
-                      target="_blank"
-                      sx={{ width: "100%" }}
-                    >
-                      Sign in
-                    </Button>
-                  </MenuItem>
+                  {}
+                    <MenuItem>
+                        <Button
+                        color="primary"
+                        variant="contained"
+                        component="a"
+                        href="/signup"
+                        target="_blank"
+                        sx={{ width: "100%" }}
+                        >
+                        Sign up
+                        </Button>
+                    </MenuItem>
+                    <MenuItem>
+                        <Button
+                        color="primary"
+                        variant="outlined"
+                        component="a"
+                        href="/signin"
+                        target="_blank"
+                        sx={{ width: "100%" }}
+                        >
+                        Sign in
+                        </Button>
+                    </MenuItem>
                 </Box>
               </Drawer>
             </Box>

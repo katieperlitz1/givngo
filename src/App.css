@@ -16,11 +16,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
-  padding: 20px;
+  padding-top: 30px;
 }
 
 .product-page {
-  padding:30px;
+  padding:40px;
 }
 
 .container-fluid {

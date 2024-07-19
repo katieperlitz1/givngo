@@ -2,6 +2,7 @@ import React from 'react';
 import "../App.css";
 import data from "../data"
 import ProductCard from "../components/ProductCard"
+import { Typography } from "@mui/material";
 
 function Effects() {
     const elements = data.products.filter(
@@ -9,7 +10,7 @@ function Effects() {
       );
       return (
           <div className="product-page">
-            <h1 className="pageHeader">Effects & Brushes</h1>
+            <Typography variant="h3">Effects</Typography>
             <div className="product-grid">
               {elements.map((product) => (
                 <ProductCard key={product.id} product={product} />

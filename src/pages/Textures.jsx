@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import data from "../data"
 import ProductCard from "../components/ProductCard"
+import {Typography} from "@mui/material";
 
 function Textures() {
   const textures = data.products.filter(
@@ -9,7 +10,7 @@ function Textures() {
   );
   return (
     <div className="product-page">
-      <h1 className="pageHeader">Textures and Overlays</h1>
+      <Typography variant="h3">Textures & Overlays</Typography>
       <div className="product-grid">
         {textures.map((product) => (
           <ProductCard product={product} key={product.id} />

@@ -42,10 +42,10 @@ export default function ProductCard(props) {
           variant="body2"
           color="text.secondary"
           underline="hover"
-          sx={{ display: "block", mt: 1 }}
+          sx={{ display: "flex", mt: 1 }}
         >
           <Person sx={{color:'primary', height:'80%', mb:'3px', mr: 1}}/>
-          {props.product.credit}
+          <Typography variant="body2" sx={{mt:"3px"}}>{props.product.credit}</Typography>
         </Link>
         <Typography variant="body2" color="text.primary" sx={{ mt: 1 }}>
           {props.product.description}
@@ -59,7 +59,7 @@ export default function ProductCard(props) {
           endIcon={<ArrowOutwardIcon />}
           component={RouterLink}
           to={props.product.link}
-          sx={{  color: "white", color: blue[500], width:'100%', fontWeight:'bold'}}
+          sx={{  color: blue[500], width:'100%', fontWeight:'bold'}}
         >
           Use Resource
         </Button>
