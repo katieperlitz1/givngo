@@ -18,8 +18,16 @@ export default function ProductCard(props) {
 
   return (
     <Card
-      sx={{ width: '100%', maxWidth: "100%", boxShadow: 3, borderRadius: 3}}
-      variant="outlined"
+      sx={{
+        width: "100%",
+        maxWidth: "100%",
+        boxShadow: 3,
+        borderRadius: 3,
+        transition: "transform 0.2s ease-in-out", // Add transition for smooth animation
+        "&:hover": {
+          transform: "scale(1.04)", // Slightly enlarge the card on hover
+        },
+      }}
     >
       <CardMedia
         component="img"
@@ -28,13 +36,13 @@ export default function ProductCard(props) {
         alt={props.product.title}
       />
       <CardContent>
-        <Typography variant="h6" sx={{ mt: 1, fontWeight: "bold"}}>
+        <Typography variant="h6" sx={{ mt: 1, fontWeight: "bold" }}>
           {props.product.title}
           <Chip
             size="small"
             color={priceColor}
             label={props.product.price}
-            sx={{ ml: 1}}
+            sx={{ ml: 1 }}
           />
         </Typography>
         <Link
@@ -44,14 +52,23 @@ export default function ProductCard(props) {
           underline="hover"
           sx={{ display: "flex", mt: 1 }}
         >
-          <Person sx={{color:'primary', height:'80%', mb:'3px', mr: 1}}/>
-          <Typography variant="body2" sx={{mt:"3px"}}>{props.product.credit}</Typography>
+          <Person sx={{ color: "primary", height: "80%", mb: "3px", mr: 1 }} />
+          <Typography variant="body2" sx={{ mt: "3px" }}>
+            {props.product.credit}
+          </Typography>
         </Link>
         <Typography variant="body2" color="text.primary" sx={{ mt: 1 }}>
           {props.product.description}
         </Typography>
       </CardContent>
-      <CardContent sx={{ display: "flex", paddingBottom: '16px', marginBottom:0, paddingTop:0}}>
+      <CardContent
+        sx={{
+          display: "flex",
+          paddingBottom: "16px",
+          marginBottom: 0,
+          paddingTop: 0,
+        }}
+      >
         <Button
           size="large"
           variant="outlined"
@@ -59,7 +76,7 @@ export default function ProductCard(props) {
           endIcon={<ArrowOutwardIcon />}
           component={RouterLink}
           to={props.product.link}
-          sx={{  color: blue[500], width:'100%', fontWeight:'bold'}}
+          sx={{ color: blue[500], width: "100%", fontWeight: "bold" }}
         >
           Use Resource
         </Button>
