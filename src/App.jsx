@@ -19,6 +19,7 @@ import { auth, db } from "./firebase/config";
 import { doc, getDoc } from "firebase/firestore";
 import { Box, CircularProgress } from "@mui/material";
 
+
 const theme = createTheme({
   palette: {
     primary: {

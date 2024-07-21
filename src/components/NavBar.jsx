@@ -115,37 +115,40 @@ function NavBar(props) {
                 </MenuItem>
               </Box>
             </Box>
-            {!props.loggedIn ? (
-              <Box
-                sx={{
+            <Box>
+              {!props.loggedIn ? (
+                <Box sx={{
                   display: { xs: "none", md: "flex" },
                   gap: 1,
                   alignItems: "center",
                   marginRight: "10px",
-                }}
-              >
-                <Button
-                  color="primary"
-                  variant="outlined"
-                  size="small"
-                  component="a"
-                  href="/signin"
-                >
-                  Sign in
+                }}>
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    size="small"
+                    component="a"
+                    href="/signin"
+                  >
+                    Sign in
+                  </Button>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="small"
+                    component="a"
+                    href="/signup"
+                  >
+                    Sign up
+                  </Button>
+                </Box>
+              ) : (
+                <Button href="/profile">
+                  <AccountCircleIcon color="primary" sx={{fontSize:"2.8em"}}/>
                 </Button>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  size="small"
-                  component="a"
-                  href="/signup"
-                >
-                  Sign up
-                </Button>
-              </Box>
-            ) : (
-              <AccountCircleIcon color="primary" href="/profile"/>
-            )}
+              )}
+            </Box>
+
             <Box sx={{ display: { sm: "", md: "none" } }}>
               <Button
                 variant="text"
@@ -210,30 +213,47 @@ function NavBar(props) {
                       </NavLink>
                     </MenuItem>
                     <Divider />
-                    <MenuItem>
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        component="a"
-                        href="/signup"
-                        target="_blank"
-                        sx={{ width: "100%" }}
-                      >
-                        Sign up
-                      </Button>
-                    </MenuItem>
-                    <MenuItem>
-                      <Button
-                        color="primary"
-                        variant="outlined"
-                        component="a"
-                        href="/signin"
-                        target="_blank"
-                        sx={{ width: "100%" }}
-                      >
-                        Sign in
-                      </Button>
-                    </MenuItem>
+                    {props.loggedIn ? (
+                      <MenuItem>
+                        <Button
+                          color="primary"
+                          variant="contained"
+                          component="a"
+                          href="/profile"
+                          target="_blank"
+                          sx={{ width: "100%" }}
+                        >
+                          Profile
+                        </Button>
+                      </MenuItem>
+                    ) : (
+                      <Box>
+                        <MenuItem>
+                          <Button
+                            color="primary"
+                            variant="contained"
+                            component="a"
+                            href="/signup"
+                            target="_blank"
+                            sx={{ width: "100%" }}
+                          >
+                            Sign up
+                          </Button>
+                        </MenuItem>
+                        <MenuItem>
+                          <Button
+                            color="primary"
+                            variant="outlined"
+                            component="a"
+                            href="/signin"
+                            target="_blank"
+                            sx={{ width: "100%" }}
+                          >
+                            Sign in
+                          </Button>
+                        </MenuItem>
+                      </Box>
+                    )}
                   </Box>
                 </Box>
               </Drawer>
