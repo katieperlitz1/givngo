@@ -10,8 +10,10 @@ import {
   TextField,
 } from "@mui/material";
 import ProductCard from "../components/ProductCard";
+import { auth } from "../firebase/config";
 
 function Home() {
+  console.log(auth.currentUser)
   return (
     <Box id="homepage">
       <Container

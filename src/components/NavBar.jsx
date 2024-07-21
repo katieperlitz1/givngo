@@ -1,6 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const logoStyle = {
   width: "100px",
@@ -21,7 +19,7 @@ const logoStyle = {
   marginTop: "5px",
 };
 
-function AppAppBar() {
+function NavBar(props) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -37,7 +35,6 @@ function AppAppBar() {
           bgcolor: "transparent",
           backgroundImage: "none",
           mt: 2,
-
         }}
       >
         <Container maxWidth="xl">
@@ -92,7 +89,7 @@ function AppAppBar() {
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
                   <NavLink
                     variant="body2"
-                    style={{ textDecoration: "none", color: "#1f1f1f"}}
+                    style={{ textDecoration: "none", color: "#1f1f1f" }}
                     to="/textures"
                   >
                     Textures
@@ -118,33 +115,37 @@ function AppAppBar() {
                 </MenuItem>
               </Box>
             </Box>
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                gap: 1,
-                alignItems: "center",
-                marginRight: "10px",
-              }}
-            >
-              <Button
-                color="primary"
-                variant="outlined"
-                size="small"
-                component="a"
-                href="/signin"
+            {!props.loggedIn ? (
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  gap: 1,
+                  alignItems: "center",
+                  marginRight: "10px",
+                }}
               >
-                Sign in
-              </Button>
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                component="a"
-                href="/signup"
-              >
-                Sign up
-              </Button>
-            </Box>
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  size="small"
+                  component="a"
+                  href="/signin"
+                >
+                  Sign in
+                </Button>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="small"
+                  component="a"
+                  href="/signup"
+                >
+                  Sign up
+                </Button>
+              </Box>
+            ) : (
+              <AccountCircleIcon color="primary" href="/profile"/>
+            )}
             <Box sx={{ display: { sm: "", md: "none" } }}>
               <Button
                 variant="text"
@@ -171,70 +172,69 @@ function AppAppBar() {
                       alignItems: "end",
                       flexGrow: 1,
                     }}
-                  ></Box>
-                  <MenuItem>
-                    <NavLink
-                      variant="body2"
-                      to="/psds"
-                      style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    >
-                      PSDs
-                    </NavLink>
-                  </MenuItem>
-                  <MenuItem>
-                    <NavLink
-                      variant="body2"
-                      to="/textures"
-                      style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    >
-                      Textures
-                    </NavLink>
-                  </MenuItem>
-                  <MenuItem>
-                    <NavLink
-                      variant="body2"
-                      to="/effects"
-                      style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    >
-                      Effects
-                    </NavLink>
-                  </MenuItem>
-                  <MenuItem>
-                    <NavLink
-                      variant="body2"
-                      to="/creatorshops"
-                      style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    >
-                      Creator Shops
-                    </NavLink>
-                  </MenuItem>
-
-                  <Divider />
-                  {}
+                  >
                     <MenuItem>
-                        <Button
+                      <NavLink
+                        variant="body2"
+                        to="/psds"
+                        style={{ textDecoration: "none", color: "#1f1f1f" }}
+                      >
+                        PSDs
+                      </NavLink>
+                    </MenuItem>
+                    <MenuItem>
+                      <NavLink
+                        variant="body2"
+                        to="/textures"
+                        style={{ textDecoration: "none", color: "#1f1f1f" }}
+                      >
+                        Textures
+                      </NavLink>
+                    </MenuItem>
+                    <MenuItem>
+                      <NavLink
+                        variant="body2"
+                        to="/effects"
+                        style={{ textDecoration: "none", color: "#1f1f1f" }}
+                      >
+                        Effects
+                      </NavLink>
+                    </MenuItem>
+                    <MenuItem>
+                      <NavLink
+                        variant="body2"
+                        to="/creatorshops"
+                        style={{ textDecoration: "none", color: "#1f1f1f" }}
+                      >
+                        Creator Shops
+                      </NavLink>
+                    </MenuItem>
+                    <Divider />
+                    <MenuItem>
+                      <Button
                         color="primary"
                         variant="contained"
                         component="a"
                         href="/signup"
                         target="_blank"
                         sx={{ width: "100%" }}
-                        >
+                      >
                         Sign up
-                        </Button>
+                      </Button>
                     </MenuItem>
                     <MenuItem>
-                        <Button
+                      <Button
                         color="primary"
                         variant="outlined"
                         component="a"
                         href="/signin"
                         target="_blank"
                         sx={{ width: "100%" }}
-                        >
+                      >
                         Sign in
-                        </Button>
+                      </Button>
                     </MenuItem>
+                  </Box>
                 </Box>
               </Drawer>
             </Box>
@@ -245,4 +245,4 @@ function AppAppBar() {
   );
 }
 
-export default AppAppBar;
+export default NavBar;
