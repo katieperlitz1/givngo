@@ -1,12 +1,14 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import * as Auth from "../auth/auth_utils";
 import { Typography, Container, Button, CircularProgress, Box} from "@mui/material";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase/config";
 import { doc, getDoc } from "firebase/firestore";
+import { AuthContext } from "../auth/AuthContext";
 
-function Profile(props) {
+function Profile() {
+  const { currUser, loggedIn, loading } = useContext(AuthContext);
   const [signOutLoading, setSignOutLoading] = useState(false);
 
   const handleSignOut = async () => {
@@ -16,17 +18,17 @@ function Profile(props) {
     setSignOutLoading(false);
   };
 
-  if (props.loading || signOutLoading) {
+  if (loading || signOutLoading) {
     return (
-      <Box sx={{ display: "flex", justifyContent:"center", pt:5}}>
+      <Box sx={{ display: "flex", justifyContent: "center", pt: 5 }}>
         <CircularProgress />
       </Box>
-    )
+    );
   }
 
   return (
     <Box>
-      {props.loggedIn ? (
+      {loggedIn ? (
         <Container
           sx={{
             gap: 1,
@@ -41,7 +43,7 @@ function Profile(props) {
             Sign Out
           </Button>
         </Container>
-      ) : !props.loading && !signOutLoading ? (
+      ) : loading && !signOutLoading ? (
         <Container
           sx={{
             display: "flex",

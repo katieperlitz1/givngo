@@ -10,6 +10,8 @@ import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthContext";
 
 const logoStyle = {
   width: "100px",
@@ -19,12 +21,14 @@ const logoStyle = {
   marginTop: "5px",
 };
 
-function NavBar(props) {
+function NavBar() {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  const { loggedIn } = useContext(AuthContext);
 
   return (
     <div>
@@ -115,14 +119,16 @@ function NavBar(props) {
                 </MenuItem>
               </Box>
             </Box>
-            <Box>
-              {!props.loggedIn ? (
-                <Box sx={{
-                  display: { xs: "none", md: "flex" },
-                  gap: 1,
-                  alignItems: "center",
-                  marginRight: "10px",
-                }}>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              {!loggedIn ? (
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 1,
+                    alignItems: "center",
+                    marginRight: "10px",
+                  }}
+                >
                   <Button
                     color="primary"
                     variant="outlined"
@@ -143,9 +149,14 @@ function NavBar(props) {
                   </Button>
                 </Box>
               ) : (
-                <Button href="/profile">
-                  <AccountCircleIcon color="primary" sx={{fontSize:"2.8em"}}/>
-                </Button>
+                <MenuItem>
+                  <NavLink to="/profile">
+                    <AccountCircleIcon
+                      color="primary"
+                      sx={{ fontSize: "2.6em", mt: 0.4 }}
+                    />
+                  </NavLink>
+                </MenuItem>
               )}
             </Box>
 
@@ -213,18 +224,19 @@ function NavBar(props) {
                       </NavLink>
                     </MenuItem>
                     <Divider />
-                    {props.loggedIn ? (
+                    {loggedIn ? (
                       <MenuItem>
-                        <Button
-                          color="primary"
-                          variant="contained"
-                          component="a"
-                          href="/profile"
-                          target="_blank"
-                          sx={{ width: "100%" }}
-                        >
-                          Profile
-                        </Button>
+                        <NavLink to="/profile">
+                          <Button
+                            color="primary"
+                            variant="contained"
+                            component="a"
+                            target="_blank"
+                            sx={{ width: "100%" }}
+                          >
+                            Profile
+                          </Button>
+                        </NavLink>
                       </MenuItem>
                     ) : (
                       <Box>
