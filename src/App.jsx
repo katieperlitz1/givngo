@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PSDs from "./pages/PSDs";
 import Textures from "./pages/Textures";
@@ -14,7 +14,8 @@ import { blue } from "@mui/material/colors";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
-import AuthProvider from "./auth/AuthContext";
+import { AuthProvider, AuthContext } from "./auth/AuthContext";
+import { Box, CircularProgress } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -36,25 +37,52 @@ const theme = createTheme({
   },
 });
 
+
 export default function App() {
   return (
     <AuthProvider>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/psds" element={<PSDs />} />
-            <Route path="/textures" element={<Textures />} />
-            <Route path="/effects" element={<Effects />} />
-            <Route path="/creatorshops" element={<CreatorShops />} />
-            <Route path="/signin" element={<SignInPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+          <AppContent />
         </BrowserRouter>
-        <Footer />
       </ThemeProvider>
     </AuthProvider>
   );
 };
+
+function AppContent() {
+  const { loading } = useContext(AuthContext);
+  console.log("loading: " + loading)
+
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  return (
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/psds" element={<PSDs />} />
+        <Route path="/textures" element={<Textures />} />
+        <Route path="/effects" element={<Effects />} />
+        <Route path="/creatorshops" element={<CreatorShops />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}

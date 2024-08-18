@@ -36,15 +36,14 @@ function Home() {
             fontSize: "50px",
           }}
         >
-          The #1 Resource Library for Sports Designers
+          The #1 Resource Library for Sports Graphics
         </Typography>
         <Typography
           textAlign="center"
           color="text.secondary"
           sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
         >
-          Discover top-tier resources, from PSDs to textures, curated for sports
-          graphic designers.
+          Discover top-tier resources, from PSDs to textures, curated for all levels of designers.
         </Typography>
         <Button variant="contained">Explore All</Button>
         <TextField

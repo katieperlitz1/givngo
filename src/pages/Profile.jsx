@@ -17,6 +17,7 @@ function Profile() {
     await Auth.authSignOut();
     setSignOutLoading(false);
   };
+  console.log("loading: " + loading)
 
   if (loading || signOutLoading) {
     return (

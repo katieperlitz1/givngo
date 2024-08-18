@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../App.css";
-import data from "../data";
 import ProductCard from "../components/ProductCard";
 import { Typography } from "@mui/material";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
+import { AuthContext } from "../auth/AuthContext";
 
 function CreatorShops() {
   const [shops, setShops] = useState([]);
+  const { loading, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchShops = async () => {
@@ -22,9 +23,16 @@ function CreatorShops() {
       }));
       setShops(shopData);
     };
-
     fetchShops();
   }, []);
+
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", pt: 5 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
   return (
     <div className="product-page">
       <Typography variant="h3">Creator Shops</Typography>

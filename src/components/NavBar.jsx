@@ -73,13 +73,24 @@ function NavBar() {
                 px: 0,
               }}
             >
-              <a href="/">
+              {/* <a href="/">
                 <img
                   src={"images/givngodark.png"}
                   style={logoStyle}
                   alt="logo of sitemark"
                 />
-              </a>
+              </a> */}
+              <NavLink
+                variant="body2"
+                to="/"
+                style={{ textDecoration: "none", color: "#1f1f1f" }}
+              >
+                <img
+                  src={"images/givngodark.png"}
+                  style={logoStyle}
+                  alt="logo of sitemark"
+                />
+              </NavLink>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <MenuItem sx={{ py: "6px", px: "15px" }}>
                   <NavLink

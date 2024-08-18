@@ -8,9 +8,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import FacebookIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const logoStyle = {
   width: '100px',
@@ -116,29 +114,16 @@ export default function Footer() {
             color: 'text.secondary',
           }}
         >
+          <Typography variant="body2" color="text.secondary" sx={{margin:"auto"}}>
+              Created by Kesper Design
+          </Typography>
           <IconButton
             color="inherit"
-            href="https://github.com/mui"
-            aria-label="GitHub"
+            href="https://www.instagram.com/kesperdesign/"
+            aria-label="Instagram"
             sx={{ alignSelf: 'center' }}
           >
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://x.com/MaterialUI"
-            aria-label="X"
-            sx={{ alignSelf: 'center' }}
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://www.linkedin.com/company/mui/"
-            aria-label="LinkedIn"
-            sx={{ alignSelf: 'center' }}
-          >
-            <LinkedInIcon />
+            <InstagramIcon />
           </IconButton>
         </Stack>
       </Box>

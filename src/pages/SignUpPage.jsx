@@ -12,7 +12,6 @@ import {
   Box,
   Typography,
   Container,
-  Alert,
 } from "@mui/material";
 import { setDoc, doc } from "firebase/firestore";
 
