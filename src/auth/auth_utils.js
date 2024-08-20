@@ -60,6 +60,7 @@ export async function removeFavorite(currUser, productId) {
     console.log("Removed favorite")
   } else {
     console.log("Not signed in");
+    window.location.href = "/signin";
     
   }
 }

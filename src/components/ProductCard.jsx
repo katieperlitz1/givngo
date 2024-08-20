@@ -9,6 +9,7 @@ import {
   IconButton,
   Box,
   Button,
+  Link
 } from "@mui/material";
 import BookmarkOutlined from "@mui/icons-material/BookmarkOutlined";
 import BookmarkBorderOutlined from "@mui/icons-material/BookmarkBorderOutlined";
@@ -18,16 +19,37 @@ import { Link as RouterLink } from "react-router-dom";
 import { blue } from "@mui/material/colors";
 import { AuthContext } from "../auth/AuthContext";
 import * as Auth from "../auth/auth_utils";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 export default function ProductCard(props) {
   const priceColor = props.product.price === "Free" ? "primary" : "warning";
   const { loggedIn, currUser, setLoading } = useContext(AuthContext);
-  const [isFavorite, setIsFavorite] = useState(null)
+  const [isFavorite, setIsFavorite] = useState(null);
+  const [creditLink, setCreditLink] = useState(null);
+  
+
+  const fetchCredit = async () => {
+
+    const q = query(
+      collection(db, "credits"),
+      where("name", "==", props.product.credit)
+    );
+    const querySnapshot = await getDocs(q);
+    const creditDocs = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    if (creditDocs[0] && creditDocs[0].link) {
+      setCreditLink(creditDocs[0].link)
+    }
+  };
 
   useEffect(() => {
     if (currUser) {
       setIsFavorite(currUser.favorites.includes(props.product.id))
     }
+    fetchCredit()
   },[])
 
   const handleFavorite = async (productId) => {
@@ -38,6 +60,8 @@ export default function ProductCard(props) {
     }
     setIsFavorite(!isFavorite);
   };
+
+
 
   return (
     <Card
@@ -54,7 +78,7 @@ export default function ProductCard(props) {
         },
       }}
     >
-      {loggedIn ? (
+      {1==1 ? (
         <IconButton
           aria-label="add to favorites"
           sx={{
@@ -97,9 +121,11 @@ export default function ProductCard(props) {
           sx={{ display: "flex", mt: 1 }}
         >
           <Person sx={{ color: "primary", height: "80%", mb: "3px", mr: 1 }} />
+          <Link href={creditLink} color="text.secondary" target="_blank">
           <Typography variant="body2" sx={{ mt: "3px" }}>
             {props.product.credit}
           </Typography>
+          </Link>
         </Box>
         <Typography variant="body2" color="text.primary" sx={{ mt: 1 }}>
           {props.product.description}
@@ -121,6 +147,7 @@ export default function ProductCard(props) {
           component={RouterLink}
           to={props.product.link}
           sx={{ color: blue[500], width: "100%", fontWeight: "bold" }}
+          target="_blank"
         >
           Use Resource
         </Button>

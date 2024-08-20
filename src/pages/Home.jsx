@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../App.css";
 import {
   Box,
@@ -18,6 +18,7 @@ import { AuthContext } from "../auth/AuthContext";
 function Home() {
   const [all, setAll] = useState([]);
   const [searchVal, setSearchVal] = useState("")
+  const { currUser } = useContext(AuthContext);
 
   const fetchAll = async () => {
 
@@ -46,6 +47,7 @@ function Home() {
   }, [searchVal]);
 
   console.log(auth.currentUser)
+
   return (
     <Box id="homepage">
       <Container
@@ -77,7 +79,7 @@ function Home() {
         >
           Discover top-tier resources, from PSDs to textures, curated for all levels of designers.
         </Typography>
-        <Button variant="contained">Explore All</Button>
+        
         <TextField
           id="outlined-basic"
           hiddenLabel

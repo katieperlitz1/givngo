@@ -115,7 +115,7 @@ function Profile() {
           </Container>
         </Container>
       ) : (
-        <CircularProgress sx={{ alignItems: "center" }} />
+        <Typography variant="h4">Sign in to view your profile</Typography>
       )}
     </Box>
   );
