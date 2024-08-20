@@ -1,6 +1,6 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
-import data from "../data";
 import {
   Box,
   Container,
@@ -11,8 +11,40 @@ import {
 } from "@mui/material";
 import ProductCard from "../components/ProductCard";
 import { auth } from "../firebase/config";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../firebase/config";
+import { AuthContext } from "../auth/AuthContext";
 
 function Home() {
+  const [all, setAll] = useState([]);
+  const [searchVal, setSearchVal] = useState("")
+
+  const fetchAll = async () => {
+
+    const querySnapshot = await getDocs(query(collection(db, "resources")));
+    const allData = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    if (searchVal.trim()) {
+      const searchValLower = searchVal.trim().toLowerCase()
+      const filteredData = allData.filter((product) => {
+        const titleLower = product.title.toLowerCase()
+        const descriptionLower = product.description.toLowerCase()
+        return (titleLower.includes(searchValLower) || descriptionLower.includes(searchValLower))
+      })
+      setAll(filteredData);
+    } else {
+      setAll(allData);
+    }
+    
+  };
+
+  useEffect(() => {
+    fetchAll();
+  }, [searchVal]);
+
   console.log(auth.currentUser)
   return (
     <Box id="homepage">
@@ -52,17 +84,15 @@ function Home() {
           size="small"
           variant="outlined"
           aria-label="Search"
-          placeholder="Search"
-          inputProps={{
-            autoComplete: "off",
-            "aria-label": "Enter your email address",
-          }}
-          width="100%"
+          placeholder="Search All"
+          value={searchVal}
+          onChange={(e) => setSearchVal(e.target.value)}
+          sx={{width:"100%", maxWidth:"400px"}}
         />
       </Container>
       <Container sx={{padding:"30px"}}>
       <div className="product-grid">
-        {data.products.map((product) => (
+        {all.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>

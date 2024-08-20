@@ -1,15 +1,22 @@
 import * as React from "react";
 import { useState, useEffect, useContext } from "react";
 import * as Auth from "../auth/auth_utils";
-import { Typography, Container, Button, CircularProgress, Box} from "@mui/material";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../firebase/config";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  Typography,
+  Container,
+  Button,
+  CircularProgress,
+  Box,
+} from "@mui/material";
 import { AuthContext } from "../auth/AuthContext";
+import ProductCard from "../components/ProductCard"
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 function Profile() {
   const { currUser, loggedIn, loading } = useContext(AuthContext);
   const [signOutLoading, setSignOutLoading] = useState(false);
+  const [favorites, setFavorites] = useState([]);
 
   const handleSignOut = async () => {
     setSignOutLoading(true);
@@ -17,7 +24,34 @@ function Profile() {
     await Auth.authSignOut();
     setSignOutLoading(false);
   };
-  console.log("loading: " + loading)
+  console.log("loading: " + loading);
+
+  const fetchFavorites = async () => {
+    if (currUser) {
+      console.log(currUser.favorites);
+      const favoritesArray = currUser.favorites;
+      if (favoritesArray.length > 0) {
+        const resourcesCollection = collection(db, "resources");
+        const resourcesQuery = query(
+          resourcesCollection,
+          where("__name__", "in", favoritesArray)
+        );
+        const resourcesSnapshot = await getDocs(resourcesQuery);
+        const resources = resourcesSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setFavorites(resources);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchFavorites();
+    console.log(favorites);
+  }, [currUser]);
+
 
   if (loading || signOutLoading) {
     return (
@@ -28,18 +62,23 @@ function Profile() {
   }
 
   return (
-    <Box>
+    <Box sx={{padding:"40px"}}>
       {loggedIn ? (
         <Container
           sx={{
             gap: 1,
-            margin: 3,
+            margin: 0,
           }}
         >
-          <Typography variant="h3">My GivNGo</Typography>
+          <Typography variant="h3">My Profile</Typography>
           <Typography variant="h4" sx={{ mt: 2 }}>
             Favorites
           </Typography>
+          <div className="favorites-grid">
+          {favorites.map((doc) => (
+            <ProductCard product={doc} key={doc.id} fetchFavorites={fetchFavorites}/>
+          ))}
+          </div>
           <Button variant="contained" onClick={handleSignOut} sx={{ mt: 5 }}>
             Sign Out
           </Button>

@@ -19,6 +19,13 @@
   padding-top: 30px;
 }
 
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 30px;
+  padding-top: 30px;
+}
+
 .product-page {
   padding:40px;
 }

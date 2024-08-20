@@ -40,6 +40,7 @@ export default function SignUp() {
           email: user.email,
           userId: user.uid,
           userName: userCredentials.name,
+          favorites: [],
         });
         setSuccess(true);
       })

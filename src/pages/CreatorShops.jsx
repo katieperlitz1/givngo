@@ -8,7 +8,7 @@ import { AuthContext } from "../auth/AuthContext";
 
 function CreatorShops() {
   const [shops, setShops] = useState([]);
-  const { loading, setLoading } = useContext(AuthContext);
+  const { loading, currUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchShops = async () => {
@@ -24,7 +24,7 @@ function CreatorShops() {
       setShops(shopData);
     };
     fetchShops();
-  }, []);
+  }, [currUser]);
 
   if (loading) {
     return (

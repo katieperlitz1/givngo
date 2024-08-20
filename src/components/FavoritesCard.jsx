@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import {
   Card,
   CardContent,
   CardMedia,
   Chip,
+  Link,
   Typography,
   IconButton,
   Box,
@@ -21,25 +22,10 @@ import * as Auth from "../auth/auth_utils";
 
 export default function ProductCard(props) {
   const priceColor = props.product.price === "Free" ? "primary" : "warning";
-  const { loggedIn, currUser, setLoading } = useContext(AuthContext);
-  const [isFavorite, setIsFavorite] = useState(null)
-
-  useEffect(() => {
-    if (currUser) {
-      setIsFavorite(currUser.favorites.includes(props.product.id))
-    }
-  },[])
-
-  const handleFavorite = async (productId) => {
-    if (isFavorite) {
-      await Auth.removeFavorite(currUser, productId);
-    } else {
-      await Auth.addFavorite(currUser, productId);
-    }
-    setIsFavorite(!isFavorite);
-  };
+  const { loggedIn, currUser } = useContext(AuthContext);
 
   return (
+    <Link href={props.product.link} sx={{textDecoration: "none"}}>
     <Card
       sx={{
         width: "100%",
@@ -51,29 +37,9 @@ export default function ProductCard(props) {
         transition: "transform 0.2s ease-in-out", // Add transition for smooth animation
         "&:hover": {
           transform: "scale(1.04)", // Slightly enlarge the card on hover
-        },
+        }
       }}
     >
-      {loggedIn ? (
-        <IconButton
-          aria-label="add to favorites"
-          sx={{
-            position: "absolute",
-            top: 8,
-            right: 8,
-            color: blue[500],
-            backgroundColor: "white",
-            zIndex: 1,
-            "&:hover": {
-              backgroundColor: blue[100],
-            },
-            boxShadow: 3,
-          }}
-          onClick={() => handleFavorite(props.product.id)}
-        >
-        {isFavorite ? <BookmarkOutlined /> : <BookmarkBorderOutlined />}
-        </IconButton>
-      ) : null}
       <CardMedia
         component="img"
         height="220"
@@ -113,18 +79,8 @@ export default function ProductCard(props) {
           paddingTop: 0,
         }}
       >
-        <Button
-          size="large"
-          variant="outlined"
-          href={props.product.link}
-          endIcon={<ArrowOutward />}
-          component={RouterLink}
-          to={props.product.link}
-          sx={{ color: blue[500], width: "100%", fontWeight: "bold" }}
-        >
-          Use Resource
-        </Button>
       </CardContent>
     </Card>
+    </Link>
   );
 }

@@ -11,12 +11,9 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log("0")
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      console.log("1")
       setLoading(true);
       if (user) {
-        console.log("2")
         const docRef = doc(db, "userData", user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
@@ -29,7 +26,6 @@ export const AuthProvider = ({ children }) => {
       } else {
         setLoggedIn(false);
       }
-      console.log("3")
     setLoading(false);
     });
     console.log("rendering app");

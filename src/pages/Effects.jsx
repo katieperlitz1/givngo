@@ -10,19 +10,20 @@ function Effects() {
   const [effects, setEffects] = useState([]);
   const { loading, setLoading } = useContext(AuthContext);
 
+  const fetchEffects = async () => {
+    const q = query(
+      collection(db, "resources"),
+      where("category", "==", "Elements")
+    );
+    const querySnapshot = await getDocs(q);
+    const effectsData = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setEffects(effectsData);
+  };
+
   useEffect(() => {
-    const fetchEffects = async () => {
-      const q = query(
-        collection(db, "resources"),
-        where("category", "==", "Elements")
-      );
-      const querySnapshot = await getDocs(q);
-      const effectsData = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setEffects(effectsData);
-    };
     fetchEffects();
   }, []);
 
@@ -39,7 +40,7 @@ function Effects() {
       <Typography variant="h3">Effects</Typography>
       <div className="product-grid">
         {effects.map((doc) => (
-          <ProductCard product={doc} key={doc.id} />
+          <ProductCard product={doc} key={doc.id} fetchData={fetchEffects}/>
         ))}
       </div>
     </div>
