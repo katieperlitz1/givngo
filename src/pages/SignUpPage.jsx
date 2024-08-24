@@ -43,6 +43,7 @@ export default function SignUp() {
           favorites: [],
         });
         setSuccess(true);
+        window.location.href = "/signin";
       })
       .catch((error) => {
         const errorCode = error.code;

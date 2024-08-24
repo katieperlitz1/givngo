@@ -20,7 +20,7 @@ export function getUserId() {
 
         if (docSnap.exists()) {
           console.log("Document data:", docSnap.data());
-          setCurrUser(docSnap.data());
+          setCurrUser({...docSnap.data(), userId: user.uid});
         } else {
           console.log("No such document!");
         }
