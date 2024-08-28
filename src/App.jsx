@@ -78,6 +78,7 @@ function AppContent() {
 
   return (
     <>
+    <div className="homepage">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -90,6 +91,7 @@ function AppContent() {
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
+      </div>
     </>
   );
 }

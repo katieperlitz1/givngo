@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../App.css";
 import ProductCard from "../components/ProductCard";
-import { Typography } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { AuthContext } from "../auth/AuthContext";
@@ -37,10 +37,13 @@ function Effects() {
 
   return (
     <div className="product-page">
-      <Typography variant="h3">Effects</Typography>
+      <Container sx={{ display: "flex", flexDirection:"column", alignItems: "center", marginBottom:4}}>
+        <Typography variant="h3" marginBottom={2}>Effects</Typography>
+        <Typography>Brushes, Text, and Color effects</Typography>
+      </Container>
       <div className="product-grid">
         {effects.map((doc) => (
-          <ProductCard product={doc} key={doc.id} fetchData={fetchEffects}/>
+          <ProductCard product={doc} key={doc.id} fetchData={fetchEffects} />
         ))}
       </div>
     </div>

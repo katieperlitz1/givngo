@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext } from "react";
 import "../App.css";
 import ProductCard from "../components/ProductCard"
-import {Typography} from "@mui/material";
+import {Typography, Container} from "@mui/material";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { AuthContext } from "../auth/AuthContext";
@@ -34,7 +34,10 @@ function Textures() {
 
   return (
     <div className="product-page">
-      <Typography variant="h3">Textures & Overlays</Typography>
+      <Container sx={{ display: "flex", flexDirection:"column", alignItems: "center", marginBottom:4}}>
+        <Typography variant="h3" marginBottom={2}>Textures & Overlays</Typography>
+        <Typography>All graphics need depth and texture - find the highest quality images to use in your design</Typography>
+      </Container>
       <div className="product-grid">
         {
           textures.map((doc) => (

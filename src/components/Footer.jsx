@@ -40,7 +40,7 @@ export default function Footer() {
         alignItems: "center",
         gap: { xs: 3, sm: 7 },
         py: { xs: 8, sm: 10 },
-        textAlign: { sm: "center", md: "left" },
+        textAlign: {md: "left" },
       }}
       maxWidth="xl"
     >
@@ -99,6 +99,7 @@ export default function Footer() {
                 Subscribe
               </Button>
             </Stack>
+            <Typography variant="body2" color="text.secondary" mt={5}>Have something to add? Email businesskesper@gmail.com, and get credit on the site!</Typography>
           </Box>
         </Box>
       </Box>

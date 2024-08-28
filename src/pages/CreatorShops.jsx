@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../App.css";
 import ProductCard from "../components/ProductCard";
-import { Typography } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { AuthContext } from "../auth/AuthContext";
@@ -35,7 +35,10 @@ function CreatorShops() {
   }
   return (
     <div className="product-page">
-      <Typography variant="h3">Creator Shops</Typography>
+      <Container sx={{ display: "flex", flexDirection:"column", alignItems: "center", marginBottom:4}}>
+        <Typography variant="h3" marginBottom={2}>Creator Shops</Typography>
+        <Typography>Shop by your favorite creator, discover the assets you've seen and loved</Typography>
+      </Container>
       <div className="product-grid">
         {shops.map((doc) => (
           <ProductCard product={doc} key={doc.id} />

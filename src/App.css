@@ -36,4 +36,9 @@
 
 body {
   background-color:rgb(248, 249, 250);
+  margin:0
 }
+
+/* .homepage {
+  background: linear-gradient(90deg, #e0edff, #ffffff);
+} */

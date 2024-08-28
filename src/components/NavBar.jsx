@@ -92,42 +92,36 @@ function NavBar() {
                 />
               </NavLink>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem sx={{ py: "6px", px: "15px" }}>
-                  <NavLink
-                    variant="body2"
-                    to="/psds"
-                    style={{ textDecoration: "none", color: "#1f1f1f" }}
-                  >
-                    PSDs
-                  </NavLink>
-                </MenuItem>
-                <MenuItem sx={{ py: "6px", px: "12px" }}>
-                  <NavLink
-                    variant="body2"
-                    style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    to="/textures"
-                  >
-                    Textures
-                  </NavLink>
-                </MenuItem>
-                <MenuItem sx={{ py: "6px", px: "12px" }}>
-                  <NavLink
-                    variant="body2"
-                    style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    to="/effects"
-                  >
-                    Effects
-                  </NavLink>
-                </MenuItem>
-                <MenuItem sx={{ py: "6px", px: "12px" }}>
-                  <NavLink
-                    variant="body2"
-                    style={{ textDecoration: "none", color: "#1f1f1f" }}
-                    to="/creatorshops"
-                  >
+                <NavLink
+                  variant="body2"
+                  to="/psds"
+                  style={{ textDecoration: "none", color: "#1f1f1f" }}
+                >
+                  <MenuItem sx={{ py: "6px", px: "15px" }}>PSDs</MenuItem>
+                </NavLink>
+                <NavLink
+                  variant="body2"
+                  style={{ textDecoration: "none", color: "#1f1f1f" }}
+                  to="/textures"
+                >
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>Textures</MenuItem>
+                </NavLink>
+                <NavLink
+                  variant="body2"
+                  style={{ textDecoration: "none", color: "#1f1f1f" }}
+                  to="/effects"
+                >
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>Effects</MenuItem>
+                </NavLink>
+                <NavLink
+                  variant="body2"
+                  style={{ textDecoration: "none", color: "#1f1f1f" }}
+                  to="/creatorshops"
+                >
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
                     Creator Shops
-                  </NavLink>
-                </MenuItem>
+                  </MenuItem>
+                </NavLink>
               </Box>
             </Box>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
