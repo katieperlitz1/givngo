@@ -35,6 +35,13 @@ const theme = createTheme({
       },
     },
   },
+  typography: {
+    "fontFamily": "'Poppins','Montserrat', sans-serif",
+    "fontWeightLight": 300,
+    "fontWeightRegular": 400,
+    "fontWeightMedium": 500
+
+  }
 });
 
 

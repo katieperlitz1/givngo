@@ -106,7 +106,7 @@ export default function ProductCard(props) {
         loading="lazy"
       />
       <CardContent>
-        <Typography variant="h6" sx={{ mt: 1, fontWeight: "bold" }}>
+        <Typography variant="h6" sx={{ mt: 1, fontWeight: "600" }}>
           {props.product.title}
           <Chip
             size="small"
