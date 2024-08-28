@@ -103,6 +103,7 @@ export default function ProductCard(props) {
         height="220"
         image={props.product.image}
         alt={props.product.title}
+        loading="lazy"
       />
       <CardContent>
         <Typography variant="h6" sx={{ mt: 1, fontWeight: "bold" }}>
