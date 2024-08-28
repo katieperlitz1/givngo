@@ -68,8 +68,10 @@ function Home() {
             alignSelf: "center",
             textAlign: "center",
             fontSize: "50px",
-            fontWeight: "500"
+            fontWeight: "500",
+            padding:2
           }}
+          
         >
           The #1 Resource Library for Sports Graphics
         </Typography>
