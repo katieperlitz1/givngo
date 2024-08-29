@@ -44,7 +44,7 @@ export default function Suggestions() {
         padding: 10,
       }}
     >
-    <Typography variant="h3"  marginBottom={2} sx={{fontWeight:[500]}}>Suggest a Resource</Typography>
+    <Typography variant="h3"  marginBottom={2} sx={{fontWeight:[500], textAlign:"center"}}>Suggest a Resource</Typography>
     <Typography marginBottom={5} sx={{textAlign:"center"}}>Any asset or resource you wish we had? Let us know, and we'll send you an email once we've found it!</Typography>
     <Container component="main" maxWidth="xs" sx={{display:"flex", flexDirection:"column", gap:2}}>
       <TextField

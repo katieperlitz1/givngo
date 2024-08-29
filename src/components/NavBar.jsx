@@ -124,12 +124,15 @@ function NavBar() {
                 </NavLink>
                 <NavLink
                   variant="body2"
-                  style={{ textDecoration: "none", color: "#1f1f1f"}}
+                  style={{ textDecoration: "none", color: "#1f1f1f" }}
                   to="/suggestions"
                 >
-                  <MenuItem sx={{ py: "0px", px: "0px", marginLeft:2}}>
-                    <Button sx={{py:"4px", px:"10px", marginTop:"1px"}} variant="contained">
-                    Suggestions
+                  <MenuItem sx={{ py: "0px", px: "0px", marginLeft: 2 }}>
+                    <Button
+                      sx={{ py: "4px", px: "10px", marginTop: "1px" }}
+                      variant="contained"
+                    >
+                      Suggestions
                     </Button>
                   </MenuItem>
                 </NavLink>
@@ -239,6 +242,20 @@ function NavBar() {
                         Creator Shops
                       </NavLink>
                     </MenuItem>
+                    <NavLink
+                      variant="body2"
+                      style={{ textDecoration: "none", color: "#1f1f1f" }}
+                      to="/suggestions"
+                    >
+                      <MenuItem sx={{ py: "0px", px: "0px", marginLeft: 2 }}>
+                        <Button
+                          sx={{ py: "4px", px: "10px", marginRight: "16px", marginTop: "5px" }}
+                          variant="outlined"
+                        >
+                          Suggestions
+                        </Button>
+                      </MenuItem>
+                    </NavLink>
                     <Divider />
                     {loggedIn ? (
                       <MenuItem>
