@@ -19,7 +19,7 @@ export function getUserId() {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data());
+          
           setCurrUser({...docSnap.data(), userId: user.uid});
         } else {
           console.log("No such document!");
@@ -44,7 +44,7 @@ export async function addFavorite(currUser, productId) {
     await updateDoc(userDocRef, {
       favorites: arrayUnion(productId),
     });
-    console.log("Added favorite")
+    
   } else {
     console.log("Not signed in");
     window.location.href = "/signin";
@@ -57,7 +57,7 @@ export async function removeFavorite(currUser, productId) {
     await updateDoc(userDocRef, {
       favorites: arrayRemove(productId),
     });
-    console.log("Removed favorite")
+    
   } else {
     console.log("Not signed in");
     window.location.href = "/signin";

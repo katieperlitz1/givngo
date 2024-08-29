@@ -138,7 +138,7 @@ export default function Footer() {
             color="text.secondary"
             sx={{ margin: "auto" }}
           >
-            Created by Kesper Design
+            Created and Coded by Kesper Design
           </Typography>
           <IconButton
             color="inherit"

@@ -14,6 +14,7 @@ import { blue } from "@mui/material/colors";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
+import Suggestions from "./pages/Suggestions";
 import { AuthProvider, AuthContext } from "./auth/AuthContext";
 import { Box, CircularProgress } from "@mui/material";
 
@@ -89,6 +90,7 @@ function AppContent() {
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/suggestions" element={<Suggestions />} />
       </Routes>
       <Footer />
       </div>

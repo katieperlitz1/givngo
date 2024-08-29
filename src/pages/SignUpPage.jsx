@@ -34,7 +34,6 @@ export default function SignUp() {
     )
       .then(async (userCredential) => {
         const user = userCredential.user;
-        console.log(user);
         setUserCredentials({});
         await setDoc(doc(db, "userData", user.uid), {
           email: user.email,

@@ -36,7 +36,7 @@ function Textures() {
     <div className="product-page">
       <Container sx={{ display: "flex", flexDirection:"column", alignItems: "center", marginBottom:4}}>
         <Typography variant="h3" marginBottom={2}>Textures & Overlays</Typography>
-        <Typography>All graphics need depth and texture - find the highest quality images to use in your design</Typography>
+        <Typography sx={{textAlign:"center"}}>All graphics need depth and texture - find the highest quality images to use in your design</Typography>
       </Container>
       <div className="product-grid">
         {

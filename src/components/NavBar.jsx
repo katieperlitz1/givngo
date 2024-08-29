@@ -122,6 +122,17 @@ function NavBar() {
                     Creator Shops
                   </MenuItem>
                 </NavLink>
+                <NavLink
+                  variant="body2"
+                  style={{ textDecoration: "none", color: "#1f1f1f"}}
+                  to="/suggestions"
+                >
+                  <MenuItem sx={{ py: "0px", px: "0px", marginLeft:2}}>
+                    <Button sx={{py:"4px", px:"10px", marginTop:"1px"}} variant="contained">
+                    Suggestions
+                    </Button>
+                  </MenuItem>
+                </NavLink>
               </Box>
             </Box>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>

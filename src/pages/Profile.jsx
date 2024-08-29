@@ -28,7 +28,6 @@ function Profile() {
 
   const fetchFavorites = async () => {
     if (currUser) {
-      console.log(currUser.favorites);
       const favoritesArray = currUser.favorites;
       if (favoritesArray.length > 0) {
         const resourcesCollection = collection(db, "resources");
@@ -49,7 +48,6 @@ function Profile() {
 
   useEffect(() => {
     fetchFavorites();
-    console.log(favorites);
   }, [currUser]);
 
 

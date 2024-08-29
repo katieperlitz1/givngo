@@ -39,7 +39,7 @@ function Effects() {
     <div className="product-page">
       <Container sx={{ display: "flex", flexDirection:"column", alignItems: "center", marginBottom:4}}>
         <Typography variant="h3" marginBottom={2}>Effects</Typography>
-        <Typography>Brushes, Text, and Color effects</Typography>
+        <Typography sx={{textAlign:"center"}}>Brushes, Text, and Color effects</Typography>
       </Container>
       <div className="product-grid">
         {effects.map((doc) => (

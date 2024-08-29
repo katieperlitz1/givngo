@@ -46,7 +46,6 @@ export default function SignIn() {
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
         window.location.href = "/profile";
       })
       .catch((error) => {
