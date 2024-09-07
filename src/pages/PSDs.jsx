@@ -42,9 +42,9 @@ function PSDs() {
           }}
         >
           <Typography variant="h3" marginBottom={2}>
-            PSDs
+            Photoshop Files
           </Typography>
-          <Typography sx={{textAlign:"center"}}>Discover the techniques and organization of experienced designers, layer by layer</Typography>
+          <Typography sx={{textAlign:"center"}}>Discover the techniques and organization of experienced designers, layer by layer.</Typography>
         </Container>
         <div className="product-grid">
           {PSDs.map((doc) => (

@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import Suggestions from "./pages/Suggestions";
 import { AuthProvider, AuthContext } from "./auth/AuthContext";
 import { Box, CircularProgress } from "@mui/material";
+import All from "./pages/All"
 
 const theme = createTheme({
   palette: {
@@ -91,6 +92,7 @@ function AppContent() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/all" element={<All />} />
       </Routes>
       <Footer />
       </div>
