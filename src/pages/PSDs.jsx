@@ -41,7 +41,7 @@ function PSDs() {
             marginBottom: 4,
           }}
         >
-          <Typography variant="h3" marginBottom={2}>
+          <Typography variant="h3" marginBottom={2} sx={{ textAlign: "center" }}>
             Photoshop Files
           </Typography>
           <Typography sx={{textAlign:"center"}}>Discover the techniques and organization of experienced designers, layer by layer.</Typography>

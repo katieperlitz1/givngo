@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .favorites-grid {
@@ -27,7 +27,7 @@
 }
 
 .product-page {
-  padding:50px;
+  padding:40px;
 }
 
 .container-fluid {

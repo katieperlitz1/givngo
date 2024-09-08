@@ -36,7 +36,7 @@ function CreatorShops() {
   return (
     <div className="product-page">
       <Container sx={{ display: "flex", flexDirection:"column", alignItems: "center", marginBottom:4}}>
-        <Typography variant="h3" marginBottom={2}>Creator Shops</Typography>
+        <Typography variant="h3" marginBottom={2} sx={{ textAlign: "center" }}>Creator Shops</Typography>
         <Typography sx={{textAlign:"center"}}>Shop by your favorite creator, discover the assets you've seen and loved</Typography>
       </Container>
       <div className="product-grid">
