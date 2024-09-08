@@ -140,9 +140,9 @@ function Home() {
             designerlink="https://www.instagram.com/evolkmanmedia/"
           />
           <FeaturedCard
-            designer="Bryce Feldmaier"
-            url="https://www.instagram.com/p/C_lMd5DvMXR/"
-            designerlink="https://www.instagram.com/bfeldy.psd/"
+            designer="Bailey Marasch"
+            url="https://www.instagram.com/p/C_o0ygvNyHm/"
+            designerlink="https://www.instagram.com/bmarasch13/"
           />
         </Container>
       </Box>
