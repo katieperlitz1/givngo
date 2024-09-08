@@ -20,36 +20,22 @@ import Brush from "@mui/icons-material/Brush";
 import FeaturedCard from "../components/FeaturedCard";
 
 function Home() {
-  const [all, setAll] = useState([]);
-  const [searchVal, setSearchVal] = useState("");
+  const [newResources, setNewResources] = useState([]);
   const { currUser } = useContext(AuthContext);
 
-  const fetchAll = async () => {
-    const querySnapshot = await getDocs(query(collection(db, "resources")));
-    const allData = querySnapshot.docs.map((doc) => ({
+  const fetchNew = async () => {
+    const querySnapshot = await getDocs(query(collection(db, "resources"), where("new", "==", true)));
+    const newData = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
-
-    if (searchVal.trim()) {
-      const searchValLower = searchVal.trim().toLowerCase();
-      const filteredData = allData.filter((product) => {
-        const titleLower = product.title.toLowerCase();
-        const descriptionLower = product.description.toLowerCase();
-        return (
-          titleLower.includes(searchValLower) ||
-          descriptionLower.includes(searchValLower)
-        );
-      });
-      setAll(filteredData);
-    } else {
-      setAll(allData);
-    }
+    setNewResources(newData);
+    
   };
 
   useEffect(() => {
-    fetchAll();
-  }, [searchVal]);
+    fetchNew();
+  }, []);
 
   console.log(auth.currentUser);
 
@@ -182,30 +168,19 @@ function Home() {
             padding: 0,
           }}
         >
-          Explore All
+          Newly Added Resources
         </Typography>
         <Typography
           textAlign="center"
           color="text.secondary"
           sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
         >
-          Browse all GivNGo resources.
+          Stay up to date with our fresh finds.
         </Typography>
-        <TextField
-          id="outlined-basic"
-          hiddenLabel
-          size="small"
-          variant="outlined"
-          aria-label="Search"
-          placeholder="Search All"
-          value={searchVal}
-          onChange={(e) => setSearchVal(e.target.value)}
-          sx={{ width: "90%", maxWidth: "400px" }}
-        />
       </Container>
       <Container sx={{ padding: "40px" }}>
         <div className="product-grid">
-          {all.map((product) => (
+          {newResources.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
