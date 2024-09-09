@@ -168,7 +168,7 @@ function Home() {
             padding: 0,
           }}
         >
-          Newly Added Resources
+          New Additions
         </Typography>
         <Typography
           textAlign="center"
