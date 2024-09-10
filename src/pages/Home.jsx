@@ -131,7 +131,7 @@ function Home() {
             flexDirection: { xs: "column", md: "row" },
             justifyContent: "center",
             gap: 0,
-            alignItems:{xs:"center", md:"normal"}
+            alignItems: { xs: "center", md: "normal" },
           }}
         >
           <FeaturedCard
@@ -141,7 +141,7 @@ function Home() {
           />
           <FeaturedCard
             designer="Declan Designs"
-            url="https://www.instagram.com/p/C_YcwOQRYLp/"
+            url="https://www.instagram.com/p/C_A0n5LuY5D/"
             designerlink="https://www.instagram.com/declan_designs/"
           />
         </Container>
