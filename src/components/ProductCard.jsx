@@ -19,7 +19,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { blue } from "@mui/material/colors";
 import { AuthContext } from "../auth/AuthContext";
 import * as Auth from "../auth/auth_utils";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 export default function ProductCard(props) {
@@ -61,7 +61,31 @@ export default function ProductCard(props) {
     setIsFavorite(!isFavorite);
   };
 
-
+  const handleClick = async () => {
+      if (currUser) {
+        if (!(currUser.email === "katieperlitz@gmail.com")) {
+        const docRef = collection(db, "clicks");
+        await addDoc(docRef, {
+          user: currUser.email,
+          time: new Date(),
+          resource: props.product.title,
+        });
+      }
+      } else {
+        const docRef = collection(db, "clicks");
+        await addDoc(docRef, {
+          user: "Guest",
+          time: new Date(),
+          resource: props.product.title,
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+      }
+    
+  };
+    
+  
 
   return (
     <Card
@@ -78,7 +102,7 @@ export default function ProductCard(props) {
         },
       }}
     >
-      {1==1 ? (
+      {1 == 1 ? (
         <IconButton
           aria-label="add to favorites"
           sx={{
@@ -95,7 +119,7 @@ export default function ProductCard(props) {
           }}
           onClick={() => handleFavorite(props.product.id)}
         >
-        {isFavorite ? <BookmarkOutlined /> : <BookmarkBorderOutlined />}
+          {isFavorite ? <BookmarkOutlined /> : <BookmarkBorderOutlined />}
         </IconButton>
       ) : null}
       <CardMedia
@@ -122,11 +146,17 @@ export default function ProductCard(props) {
           sx={{ display: "flex", mt: 1 }}
         >
           <Person sx={{ color: "primary", height: "80%", mb: "3px", mr: 1 }} />
+          {creditLink ?
           <Link href={creditLink} color="text.secondary" target="_blank">
-          <Typography variant="body2" sx={{ mt: "3px" }}>
-            {props.product.credit}
-          </Typography>
+            <Typography variant="body2" sx={{ mt: "3px" }}>
+              {props.product.credit}
+            </Typography>
           </Link>
+          : 
+          <Typography variant="body2" sx={{ mt: "3px" }}>
+              {props.product.credit}
+          </Typography>
+          }
         </Box>
         <Typography variant="body2" color="text.primary" sx={{ mt: 1 }}>
           {props.product.description}
@@ -143,12 +173,12 @@ export default function ProductCard(props) {
         <Button
           size="large"
           variant="outlined"
-          href={props.product.link}
           endIcon={<ArrowOutward />}
           component={RouterLink}
           to={props.product.link}
           sx={{ color: blue[500], width: "100%", fontWeight: "bold" }}
           target="_blank"
+          onClick={() => handleClick()}
         >
           Use Resource
         </Button>

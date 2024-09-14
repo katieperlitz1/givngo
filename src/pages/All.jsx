@@ -46,7 +46,6 @@ function Home() {
     fetchAll();
   }, [searchVal]);
 
-
   return (
     <Box id="homepage">
       <Container
@@ -93,6 +92,7 @@ function Home() {
           sx={{width:"90%", maxWidth:"400px"}}
         />
       </Container>
+
       <Container sx={{padding:"30px"}}>
       <div className="product-grid">
         {all.map((product) => (
@@ -100,6 +100,7 @@ function Home() {
         ))}
       </div>
       </Container>
+
     </Box>
   );
 };

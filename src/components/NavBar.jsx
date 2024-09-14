@@ -242,34 +242,36 @@ function NavBar() {
                         Creator Shops
                       </NavLink>
                     </MenuItem>
+
                     <NavLink
-                      variant="body2"
-                      style={{ textDecoration: "none", color: "#1f1f1f" }}
                       to="/suggestions"
+                      style={{ textDecoration: "none" }}
                     >
-                      <MenuItem sx={{ py: "0px", px: "0px", marginLeft: 2 }}>
-                        <Button
-                          sx={{ py: "4px", px: "10px", marginRight: "16px", marginTop: "5px" }}
-                          variant="outlined"
-                        >
-                          Suggestions
-                        </Button>
-                      </MenuItem>
+                      <Button
+                        sx={{
+                          py: "4px",
+                          px: "10px",
+                          marginRight: "16px",
+                          marginTop: "5px",
+                        }}
+                        variant="outlined"
+                      >
+                        Suggestions
+                      </Button>
                     </NavLink>
                     <Divider />
                     {loggedIn ? (
+                      
                       <MenuItem>
-                        <NavLink to="/profile">
-                          <Button
-                            color="primary"
-                            variant="contained"
-                            component="a"
-                            target="_blank"
-                            sx={{ width: "100%" }}
-                          >
-                            Profile
-                          </Button>
-                        </NavLink>
+                        <Button
+                          color="primary"
+                          variant="contained"
+                          component={NavLink}
+                          to="/profile"
+                          sx={{ width: "100%" }}
+                        >
+                          Profile
+                        </Button>
                       </MenuItem>
                     ) : (
                       <Box>
