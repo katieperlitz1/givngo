@@ -135,14 +135,14 @@ function Home() {
           }}
         >
           <FeaturedCard
-            designer="Daniel Lee"
-            url="https://www.instagram.com/p/C_jLKwhyYNa/"
-            designerlink="https://www.instagram.com/danieljinlee/"
+            designer="WP Graphics"
+            url="https://www.instagram.com/p/C_jyJtwNchT/"
+            designerlink="https://www.instagram.com/wp.graphics/"
           />
           <FeaturedCard
-            designer="Declan Designs"
-            url="https://www.instagram.com/p/C_A0n5LuY5D/"
-            designerlink="https://www.instagram.com/declan_designs/"
+            designer="PatFrom3"
+            url="https://www.instagram.com/p/DACVWxWSzZM/"
+            designerlink="https://www.instagram.com/patfrom3/"
           />
         </Container>
       </Box>
