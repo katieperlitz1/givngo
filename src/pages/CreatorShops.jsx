@@ -8,7 +8,7 @@ import { AuthContext } from "../auth/AuthContext";
 
 function CreatorShops() {
   const [shops, setShops] = useState([]);
-  const { loading, currUser } = useContext(AuthContext);
+  const { currUser } = useContext(AuthContext);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -31,14 +31,6 @@ function CreatorShops() {
     };
     fetchShops();
   }, [currUser]);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", pt: 5 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
 
   if (error) {
     return (

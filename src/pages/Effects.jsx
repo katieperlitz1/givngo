@@ -8,7 +8,6 @@ import { AuthContext } from "../auth/AuthContext";
 
 function Effects() {
   const [effects, setEffects] = useState([]);
-  const { loading, setLoading } = useContext(AuthContext);
 
   const fetchEffects = async () => {
     const q = query(
@@ -27,13 +26,6 @@ function Effects() {
     fetchEffects();
   }, []);
 
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", pt: 5 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
 
   return (
     <div className="product-page">

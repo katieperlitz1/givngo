@@ -8,7 +8,6 @@ import { AuthContext } from "../auth/AuthContext";
 
 function PSDs() {
   const [PSDs, setPSDs] = useState([]);
-  const { loading, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchPSDs = async () => {
@@ -22,14 +21,6 @@ function PSDs() {
     };
     fetchPSDs();
   }, []);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", pt: 5 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
 
     return (
       <div className="product-page">

@@ -37,7 +37,6 @@ function Home() {
     fetchNew();
   }, []);
 
-  console.log(auth.currentUser);
 
   return (
     <Box id="homepage">

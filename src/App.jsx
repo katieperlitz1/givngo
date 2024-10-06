@@ -61,7 +61,6 @@ export default function App() {
 
 function AppContent() {
   const { loading } = useContext(AuthContext);
-  console.log("loading: " + loading)
 
   if (loading) {
     return (

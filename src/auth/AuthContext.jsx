@@ -6,12 +6,13 @@ import { doc, getDoc } from "firebase/firestore";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState();
   const [currUser, setCurrUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      console.log("in unsubscribe")
       setLoading(true);
       if (user) {
         const docRef = doc(db, "userData", user.uid);
@@ -27,12 +28,11 @@ export const AuthProvider = ({ children }) => {
       }
     setLoading(false);
     });
-    console.log("rendering app");
     return () => unsubscribe(); // Cleanup subscription on unmount
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currUser, loggedIn, loading, setLoading }}>
+    <AuthContext.Provider value={{ currUser, loggedIn, loading, setLoading}}>
       {children}
     </AuthContext.Provider>
   );

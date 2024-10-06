@@ -58,7 +58,6 @@ export default function SignIn() {
   }
 
   const handlePasswordReset = () => {
-    console.log(resetEmail);
     sendPasswordResetEmail(auth, resetEmail);
   };
 

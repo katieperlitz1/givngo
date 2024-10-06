@@ -12,6 +12,7 @@ import { AuthContext } from "../auth/AuthContext";
 import ProductCard from "../components/ProductCard"
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
+import { FlashOnTwoTone } from "@mui/icons-material";
 
 function Profile() {
   const { currUser, loggedIn, loading } = useContext(AuthContext);
@@ -28,7 +29,19 @@ function Profile() {
 
   const fetchFavorites = async () => {
     if (currUser) {
-      const favoritesArray = currUser.favorites;
+      // Fetch user favorites
+      const q = query(
+        collection(db, "userData"),
+        where("userId", "==", currUser.userId)
+      );
+      const querySnapshot = await getDocs(q);
+      const userData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      const favoritesArray = userData[0].favorites;
+
+      // Collect the user favorite ids to its resource data in /resources
       if (favoritesArray.length > 0) {
         const resourcesCollection = collection(db, "resources");
         const resourcesQuery = query(
@@ -47,9 +60,9 @@ function Profile() {
   };
 
   useEffect(() => {
+    console.log("Logged in? " + loggedIn)
     fetchFavorites();
-  }, [currUser]);
-
+  }, []);
 
   if (loading || signOutLoading) {
     return (
@@ -60,8 +73,8 @@ function Profile() {
   }
 
   return (
-    <Box sx={{padding:"40px"}}>
-      {loggedIn ? (
+    <Box sx={{ padding: "40px" }}>
+      {!(loggedIn == false) ? (
         <Container
           sx={{
             gap: 1,
@@ -73,15 +86,19 @@ function Profile() {
             Favorites
           </Typography>
           <div className="favorites-grid">
-          {favorites.map((doc) => (
-            <ProductCard product={doc} key={doc.id} fetchFavorites={fetchFavorites}/>
-          ))}
+            {favorites.map((doc) => (
+              <ProductCard
+                product={doc}
+                key={doc.id}
+                fetchFavorites={fetchFavorites}
+              />
+            ))}
           </div>
           <Button variant="contained" onClick={handleSignOut} sx={{ mt: 5 }}>
             Sign Out
           </Button>
         </Container>
-      ) : loading && !signOutLoading ? (
+      ) : !loading && !signOutLoading ? (
         <Container
           sx={{
             display: "flex",
