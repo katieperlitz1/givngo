@@ -18,8 +18,49 @@ import { AuthContext } from "../auth/AuthContext";
 import { InstagramEmbed } from "react-social-media-embed";
 import Brush from "@mui/icons-material/Brush";
 import FeaturedCard from "../components/FeaturedCard";
+import HomeAnimation from "../components/HomeAnimation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+
 
 function Home() {
+  useGSAP(() => {
+    gsap.to("#title", {
+      ease: "power1.inOut",
+      opacity: 1,
+      y: 0,
+      duration: 1,
+    });
+
+    gsap.fromTo(
+      "#para",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        delay: .5,
+        stagger: 0.1,
+      }
+    );
+    gsap.fromTo(
+      "#explore",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        delay: .5,
+        stagger: 0.1,
+      }
+    );
+  }, []);
+
   const [newResources, setNewResources] = useState([]);
   const { currUser } = useContext(AuthContext);
 
@@ -51,6 +92,7 @@ function Home() {
         }}
       >
         <Typography
+          id="title"
           variant="h3"
           sx={{
             display: "flex",
@@ -60,11 +102,13 @@ function Home() {
             fontSize: "50px",
             fontWeight: "500",
             padding: 2,
+            opacity: 0,
           }}
         >
           The #1 Resource Library for Sports Graphics
         </Typography>
         <Typography
+          id="para"
           textAlign="center"
           color="text.secondary"
           sx={{
@@ -78,6 +122,7 @@ function Home() {
         </Typography>
 
         <Button
+          id="explore"
           color="primary"
           variant="contained"
           component="a"
@@ -134,14 +179,14 @@ function Home() {
           }}
         >
           <FeaturedCard
-            designer="WP Graphics"
-            url="https://www.instagram.com/p/C_jyJtwNchT/"
-            designerlink="https://www.instagram.com/wp.graphics/"
+            designer="Iowa Football"
+            url="https://www.instagram.com/p/DA3d_49uW2t/"
+            designerlink="https://www.instagram.com/hawkeyefootball/"
           />
           <FeaturedCard
-            designer="PatFrom3"
-            url="https://www.instagram.com/p/DACVWxWSzZM/"
-            designerlink="https://www.instagram.com/patfrom3/"
+            designer="Shauna Howell"
+            url="https://www.instagram.com/p/DA5-H_jxtC1/"
+            designerlink="https://x.com/shauna_howell1"
           />
         </Container>
       </Box>
@@ -184,6 +229,7 @@ function Home() {
           ))}
         </div>
       </Container>
+      {/* <HomeAnimation /> */}
     </Box>
   );
 };

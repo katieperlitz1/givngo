@@ -8,6 +8,7 @@ import {
   Typography,
   Button,
   TextField,
+  Chip
 } from "@mui/material";
 import ProductCard from "../components/ProductCard";
 import { auth } from "../firebase/config";
@@ -92,6 +93,13 @@ function Home() {
           sx={{width:"90%", maxWidth:"400px"}}
         />
       </Container>
+      <Container sx={{display: "flex",flexDirection: "row",
+            justifyContent: "center", gap: 1.5}}>
+      <Chip label="PSDs" variant="outlined" onClick={() => window.location.href = "/psds"} />
+        <Chip label="Textures" variant="outlined" onClick={() => window.location.href = "/textures"} />
+        <Chip label="Creator Shops" variant="outlined" onClick={() => window.location.href = "/creatorshops"} />
+        <Chip label="Effects" variant="outlined" onClick={() => window.location.href = "/effects"} />
+        </Container>
 
       <Container sx={{padding:"30px"}}>
       <div className="product-grid">
