@@ -207,7 +207,7 @@ function Home() {
             flexDirection: { xs: "column", md: "row" },
             alignSelf: "center",
             textAlign: "center",
-            fontSize: "50px",
+            fontSize: "45px",
             fontWeight: "500",
             padding: 0,
           }}
