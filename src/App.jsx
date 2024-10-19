@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PSDs from "./pages/PSDs";
 import Textures from "./pages/Textures";
@@ -18,6 +18,7 @@ import Suggestions from "./pages/Suggestions";
 import { AuthProvider, AuthContext } from "./auth/AuthContext";
 import { Box, CircularProgress } from "@mui/material";
 import All from "./pages/All"
+import { getClickData, aggregateClicksByResource } from "./firebase/rankings";
 
 const theme = createTheme({
   palette: {
@@ -47,6 +48,7 @@ const theme = createTheme({
 });
 
 
+
 export default function App() {
   return (
     <AuthProvider>
@@ -61,6 +63,17 @@ export default function App() {
 
 function AppContent() {
   const { loading } = useContext(AuthContext);
+
+  // Resource rankings by clicks
+    // useEffect(() => {
+    //   const fetchAndRankResources = async () => {
+    //     const clicks = await getClickData();
+    //     const ranked = aggregateClicksByResource(clicks);
+    //     console.log(ranked)
+    //   };
+    
+    //   fetchAndRankResources();
+    // }, []);
 
   if (loading) {
     return (
