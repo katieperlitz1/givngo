@@ -179,14 +179,14 @@ function Home() {
           }}
         >
           <FeaturedCard
-            designer="Iowa Football"
-            url="https://www.instagram.com/p/DA3d_49uW2t/"
-            designerlink="https://www.instagram.com/hawkeyefootball/"
+            designer="Patrick Nagy"
+            url="https://www.instagram.com/p/DARQisJvaXw/"
+            designerlink="https://www.instagram.com/patfrom3"
           />
           <FeaturedCard
-            designer="Shauna Howell"
-            url="https://www.instagram.com/p/DA5-H_jxtC1/"
-            designerlink="https://x.com/shauna_howell1"
+            designer="Elias Bowles"
+            url="https://www.instagram.com/p/DDFr2yCyAhu/"
+            designerlink="https://www.instagram.com/eliasgraphicdesign/"
           />
         </Container>
       </Box>
